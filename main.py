@@ -115,7 +115,7 @@ def lambda_handler(event, context):
 
       # correct for UNIX timestamps missing milliseconds
       if 'timestamp' in f:
-        f['timestamp'] = f['timestamp'] * 1000
+        f['timestamp'] = str(f['timestamp']) + '000'
 
       bulk = bulk + index + "\n" + json.dumps(f) + "\n"
 
